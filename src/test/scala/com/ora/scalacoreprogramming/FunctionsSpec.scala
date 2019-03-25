@@ -74,7 +74,11 @@ class FunctionsSpec extends FunSuite with Matchers {
 
     pending
 
-    def lessThan(x:Int):Int => Boolean = ???
+    def lessThan(x:Int):Int => Boolean = (y:Int) => y < x
+    val ifFreezingCelcius:Int => Boolean = lessThan(0)
+    val isFreezingFahrenheit:Int => Boolean = lessThan(32)
+
+    isFreezingFahrenheit(40) should be (false)
   }
 
   test(
